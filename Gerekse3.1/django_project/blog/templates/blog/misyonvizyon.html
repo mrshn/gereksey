@@ -1,0 +1,113 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+{% block head %}
+<style>
+body {
+	background-image: url("https://i.hizliresim.com/EOM3oB.jpg");
+        background-repeat:no-repeat;
+       background-size:cover;
+       
+} 
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.9;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+</style>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Hakkımızda</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/full-width-pics.css' %}" rel="stylesheet">
+
+</head>
+{% endblock %}
+
+
+<body>
+  <section class="testimonials text-center" style="opacity: 0.8;">
+    <div class="transbox" style="border-style:hidden;">
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1><strong>Gerekse.com Nedir?</strong></h1>
+      <p class="lead"><strong>Gerekse.com</strong>, ODTÜ öğrenci ve personellerine istedikleri eşya ya da hizmetleri hızlı ve kolay bir biçimde kiralama ya da satma imkanı sunan <strong>tamamen ücretsiz</strong> bir internet girişimidir.</p>
+      <p></p>
+    </div>
+  </section>
+
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1><strong>Biz Kimiz?</strong></h1>
+      <p class="lead">Ekibimiz her biri ODTÜ'de lisans yapan 2 Elektrik & Elektronik ve 1 Bilgisayar Mühendisinden oluşmaktadır.</p>
+      <p></p>
+    </div>
+  </section>
+
+</div>
+</section>  
+  
+  
+   <!-- Testimonials -->
+  <section class="testimonials text-center">
+    <div class="transbox" style="border-style:hidden; height:380px">
+      <h2 class="mb-5">Ekip Üyelerimiz:</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/eren.jpg' %}" alt="">
+            <h5>Eren Tekelioğlu</h5>
+            <p class="font-weight-light mb-0"><strong>Elektrik&Elektronik Mühendisliği</strong></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/Enfal.jpg' %}" alt="">
+            <h5>Enfal Çabuk</h5>
+            <p class="font-weight-light mb-0"><strong>Elektrik&Elektronik Mühendisliği</strong></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/emre.jpg' %}" alt="">
+            <h5>Emre Şahin</h5>
+            <p class="font-weight-light mb-0"><strong>Bilgisayar Mühendisliği</strong></p>
+          </div>
+		  </div>
+      </div>
+    </div>
+	
+	
+	
+	
+  </section>
+
+{% endblock %}
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

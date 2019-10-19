@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block title %} Gerekse {% endblock %}
+{% block content %}
+{% load bootstrap %}
+
+<br>
+<div class="success-msg">
+  <i class="fa fa-check"></i>
+  Mailinize Gidip Hesabınızı Onaylayabilirsiniz
+</div>
+<form action="{% url 'blog-new' %}">
+<div class="form-row" style="margin-left:auto; margin-right:auto;">
+    <div style="margin:auto">
+    <button type="submit" class="btn btn-block btn-lg btn-primary">Anasayfaya Dön</button>
+    </div>
+</div>
+
+{% endblock %}
+{% block div %}
+<div style="width:100%; min-height:286px; border-style:hidden; background-size:cover;"></div>
+{% endblock %}

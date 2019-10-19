@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% block title %} Çıkış Yap {% endblock %}
+{% block content %}
+<br>
+    <h2>Çıkış Yaptınız</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Tekrar Giriş Yap</a>
+        </small>
+    </div>
+{% endblock content %}
+{% block div %}
+<div style="width:100%; min-height:286px; border-style:hidden; background-size:cover;"></div>
+{% endblock %}

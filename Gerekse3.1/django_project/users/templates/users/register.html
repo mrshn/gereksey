@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Kayıt Ol {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+ <br>
+<div class="info-msg">
+  <i class="fa fa-info-circle"></i>
+  Zaten Giriş Yaptınız
+</div>
+<form action="{% url 'blog-new' %}">
+<div class="form-row" style="margin-left:auto; margin-right:auto;">
+    <div style="margin:auto">
+    <button type="submit" class="btn btn-block btn-lg btn-primary">Anasayfaya Dön</button>
+    </div>
+</div>
+</form>
+{% else %}
+<br>
+    <div class="content-section" style="margin-left:10px" >
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Hemen Üye Ol</legend>
+                {{ form|crispy }}
+                <p><a href="{% url 'blog-sozlesme' %}" target="_blank">Site Kullanım Şartları</a></p>               
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Kayıt Ol</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Hesabın var mı? <a class="ml-2" href="{% url 'login' %}">Giriş Yap</a>
+            </small>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock content %}
+{% block div %}
+<div style="width:100%; min-height:286px; border-style:hidden; background-size:cover;"></div>
+{% endblock %}

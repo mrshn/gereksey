@@ -1,0 +1,79 @@
+{% extends "blog/base.html" %}
+{% block title %} İlan Detayı {% endblock %}
+{% block content %}
+  <head>
+    <style type="text/css">
+      .scrollable {
+        height: 160px;
+        overflow-y: scroll;
+        word-wrap:break-word;
+      }
+    </style>
+  </head>
+  
+<div style="border-style:solid; border-width:1px; border-color:#D0CDCD; border-radius:5px; width:70%; height:330px; margin: 30px auto; box-shadow: -5px 5px 10px #111111" >
+
+     <div style="border-right-style:hidden; width:35%; height:300px; float:left;">
+     
+         <div style="border-right-style:solid; border-bottom-style:solid; border-width:1px; border-color:#D0CDCD; width:100%; height:298px;">
+             <a href="{% url 'post-detail' post.id %}"><img class="card-img-top" style="height:296px; border-radius:5px 0px 0px 0px" src="{{ post.image.url }}" alt=""></a>
+    
+         </div>
+    
+    
+    </div>
+    
+    <div style="border-right-style:hidden; width:65%; height:300px; float:left;">
+    		{% if post.Aktiflik == 1 %}			
+    			<div style="width:20%; min-height:80px;  border-color:#D0CDCD; border-width:2px; float:right; padding-top:22px; border-radius:5px 5px 0px 0px; float:right; padding-top:22px; background-image: linear-gradient(#38ef7d, #11998e); box-shadow: -1px 0px 5px #111111">
+    			<p style="font-family:Tahoma; font-size:18px; color:#FFFFFF; text-align:center; ">{{ post.get_Aktiflik_display }}</p>
+    			</div>
+			{% else %}
+    			<div style="width:20%; min-height:80px; border-color:#D0CDCD; border-width:2px; border-radius:5px 5px 0px 0px; float:right; padding-top:22px; background-image: linear-gradient(#ED213A, #250704);  box-shadow: -1px 0px 5px #111111">
+    			<p style="font-family:Tahoma; font-size:18px; color:#FFFFFF; text-align:center; ">{{ post.get_Aktiflik_display }}</p>
+    			</div>
+    		{% endif %}	
+        <div style="border-bottom-style:solid; border-color:#D0CDCD; border-width:1px; width:100%; height:80px; padding-top:18px">
+            <a href="{% url 'post-detail' post.id %}"><p style="font-family:Tahoma; font-size:30px; text-align:center;">{{ post.title }}</p></a>
+    
+        </div>
+        
+      <div class="scrollable">
+      <table>
+            <p style="font-family:Tahoma; font-size:18px; color:#5f6f81; text-align:center;">{{ post.content }}</P>
+            {% if user.is_authenticated %}
+            <p style="font-family:Tahoma; font-size:18px; color:#5f6f81; text-align:center; margin-top:80px">İletişim Adresi: {{ post.iletisim }}</P>
+            {% endif %}
+      </table>
+      </div>
+         
+         <div style="border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:#D0CDCD; height:58px; width:100% ">
+         {% if user.is_authenticated and user == post.author or user.is_superuser %}
+<form action="{% url 'post-delete' post.id %}">
+    <div>
+    <button type="submit" class="btn btn-block btn-lg btn-primary" style="height:57px; width:50%; float:left;">İlanı Kaldır</button>
+    </div>		
+</form>
+<form action="{% url 'post-update' post.id %}">
+    <div>
+    <button type="submit" class="btn btn-block btn-lg btn-secondary" style="height:57px; width:50%; float:left;">İlanı Güncelle</button>
+    </div>		
+</form>
+{% else %}
+<p style="color:red; text-align:center; margin-top:15px">İletişim Bilgilerini Görmek İçin Giriş Yapmalısınız</p>
+{% endif %}
+         </div>
+         
+      </div>
+      
+      <div style=" border-top-style:hidden; width:100%; height:30px; border-width:1px; border-color:#D0CDCD;">
+		<a href="{% url 'profile-detail' post.author.id %}"><p style="font-family:Tahoma; font-size:18px; margin-left:10px; float:left;">İlan Sahibi:{{ post.author }}</p></a>
+		<p style="font-family:Tahoma; font-size:20px; color:#5f6f81; margin-right:10px; margin-bottom:6px; float:right;"><small>İlan Tarihi: {{ post.date_posted|date:"d/m/Y" }}</small></p>        
+      </div>
+      
+</div>
+
+ 
+{% endblock content %}
+
+
